@@ -1,0 +1,64 @@
+<html>
+<head><title>Result Here</title>
+</head>
+<body>
+
+			<h1 id="hd1">result here</h1>
+	    <form id="frm1" name="frmNumber" action="" method="POST">
+			Enter No <input type="text" id="t1"/><br><br>
+			<input type="Button" id="b1" value="show" onclick="test()"/><br><br>
+
+		</form>
+		<script language="javascript" type="text/javascript">
+			function test()
+			{
+			     var number=parseInt(document.getElementById("t1").value);
+			     document.write("check....<br>");
+
+			     document.write("Result is :"+numberToWords(number));
+
+			};
+
+			function numberToWords(num)
+			{
+			    document.write("Number is :" +num+"<br><br>");
+			    var numToWords=getwords(num);
+			    return(numToWords);
+			};
+
+			function getwords(n)
+			{
+			      const a=['',' One',' Two',' Three',' Four',' Five',' Six',' Seven',' Eight',' Nine',' Ten',' Eleven',' Twelve',' Thirteen',' Fourteen',' Fifteen',' Sixteen',' seventeen',' Eighteen','Nineteen'];
+			      const b=['','',' Twenty',' Thirty',' fourty',' fifty',' sixty',' seventy',' Eighty',' Ninety'];
+
+			      if(n<20)
+			      {
+			            return a[n];
+			      }
+
+			      if(n<100)
+
+			      {
+			           return b[Math.floor(n/10)]+(n%10?'_'+a[n%10]:'');
+			      }
+			      if(n<1000)
+			      {
+			           return a[Math.floor(n/100)]+' Hundread'+ (n%100 ?' and'+ getwords(n%100):'');
+			      }
+			      if(n<99999)
+			      {
+			           return a[Math.floor(n/1000)]+' thousand'+(getwords(n%1000));
+			      }
+			      if(n<100000)
+			      {
+			           return a[Math.floor(n/10000)]+' lakh'+(getwords(n%10000));
+			      }
+			      if(n<10000000)
+			      {
+			      	   return a[Math.floor(n/1000000)]+'Core'+(getwords(n%1000000));
+			      }
+			};
+	</script>
+
+</body>
+</html>
